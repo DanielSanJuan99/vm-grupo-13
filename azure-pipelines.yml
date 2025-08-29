@@ -5,7 +5,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  azureSubscription: 'bf3f9e67-f65f-45a2-b60d-c44b731be435' # Este es un nombre que debe cambiar al que crearon.
+  azureSubscription: 'Azure for Students' # Este es un nombre que debe cambiar al que crearon.
   location: 'westus3'
   resourceGroupName: 'grupo-13' # Este es un nombre que debe cambiar al que crearon.
   virtualNetworkName: 'vr-grupo-13'

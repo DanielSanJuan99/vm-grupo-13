@@ -7,11 +7,11 @@ pool:
 variables:
   azureSubscription: 'sc-grupo-13' 
   location: 'westus3'
-  resourceGroupName: 'rg-grupo-13' # Este es un nombre que debe cambiar al que crearon.
+  resourceGroupName: 'grupo-13' # Este es un nombre que debe cambiar al que crearon.
   virtualNetworkName: 'vr-grupo-13'
   subnetName: 'subr-grupo-13'
-  addressPrefix: '10.0.0.0/24'
-  subnetPrefix: '10.0.0.0/26'
+  addressPrefix: '10.0.0.0/16'
+  subnetPrefix: '10.0.1.0/24'
   securityGroupName: 'sg-grupo-13'
   publicIpName: 'vm-grupo-13-ip'
   vmName: 'vm-grupo-13'
@@ -60,9 +60,18 @@ steps:
       echo "Reglas de NSG configuradas."
 
       # Crear una dirección IP pública
-      echo "Creando IP pública..."
-      az network public-ip create --resource-group $(resourceGroupName) --name $(publicIpName) --sku Standard --allocation-method Static
-      echo "IP pública creada."
+      if az network public-ip show --resource-group $(resourceGroupName) --name $(publicIpName) >/dev/null 2>&1; then
+        echo "La IP pública '$(publicIpName)' ya existe; no se modifica (las zonas son inmutables)."
+      else
+        # westus3 es zonal: crear explícitamente en zona 1 para evitar cambios de zona en futuras corridas
+        az network public-ip create \
+          --resource-group $(resourceGroupName) \
+          --name $(publicIpName) \
+          --sku Standard \
+          --allocation-method Static \
+          --zone 1
+        echo "IP pública creada en zona 1."
+      fi
       az network public-ip wait --resource-group $(resourceGroupName) --name $(publicIpName) --created
 
       # Crear la máquina virtual con la IP pública asignada, usando los parámetros de imagen especificados

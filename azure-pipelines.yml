@@ -5,16 +5,16 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  azureSubscription: 'sc-grupo-13' 
+  azureSubscription: 'sc-grupo-13-2'  # Nombre del servicio de conexión en Azure DevOps
   location: 'westus3'
-  resourceGroupName: 'rg-grupo-13' # Este es un nombre que debe cambiar al que crearon.
-  virtualNetworkName: 'vr-grupo-13'
-  subnetName: 'subr-grupo-13'
-  addressPrefix: '10.0.0.0/24'
-  subnetPrefix: '10.0.0.0/26'
-  securityGroupName: 'sg-grupo-13'
-  publicIpName: 'vm-grupo-13-ip'
-  vmName: 'vm-grupo-13'
+  resourceGroupName: 'rg-grupo-13-2' # Este es un nombre que debe cambiar al que crearon.
+  virtualNetworkName: 'vr-grupo-13-2'
+  subnetName: 'subr-grupo-13-2'
+  addressPrefix: '10.0.1.0/24'
+  subnetPrefix: '10.0.1.0/26'
+  securityGroupName: 'sg-grupo-13-2'
+  publicIpName: 'vm-grupo-13-ip-2'
+  vmName: 'vm-grupo-13-2'
   vmSize: 'Standard_B1s'  # SKU disponible en westus3
   adminUsername: 'ssh-grupo-13'
   adminPassword: 'Devopsgrupo13'  # Contraseña en texto plano (ajustar según necesidad)
@@ -118,7 +118,7 @@ steps:
       az vm wait --resource-group $(resourceGroupName) --name $(vmName) --created
 
       # Instalar Apache y configurar la página de prueba
-      # echo "Instalando Apache y configurando la página de prueba..."
-      # az vm run-command invoke --resource-group $(resourceGroupName) --name $(vmName) --command-id RunShellScript --scripts "sudo apt update && sudo apt install -y apache2"
-      # az vm run-command invoke --resource-group $(resourceGroupName) --name $(vmName) --command-id RunShellScript --scripts "echo 'hola curso devops hemos automatizado el despliegue de maquina virtual desde azure devops' | sudo tee /var/www/html/index.html"
-      # echo "Apache instalado y página de bienvenida configurada."
+      echo "Instalando Apache y configurando la página de prueba..."
+      az vm run-command invoke --resource-group $(resourceGroupName) --name $(vmName) --command-id RunShellScript --scripts "sudo apt update && sudo apt install -y apache2"
+      az vm run-command invoke --resource-group $(resourceGroupName) --name $(vmName) --command-id RunShellScript --scripts "echo 'hola curso devops hemos automatizado el despliegue de maquina virtual desde azure devops' | sudo tee /var/www/html/index.html"
+      echo "Apache instalado y página de bienvenida configurada."

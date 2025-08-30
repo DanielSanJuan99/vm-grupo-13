@@ -16,8 +16,8 @@ variables:
   publicIpName: 'vm-grupo-13-ip'
   vmName: 'vm-grupo-13'
   vmSize: 'Standard_B1s'  # SKU disponible en westus3
-  # adminUsername: 'ssh-grupo-13'
-  # adminPassword: 'Devopsgrupo13'  # Contraseña en texto plano (ajustar según necesidad)
+  adminUsername: 'ssh-grupo-13'
+  adminPassword: 'Devopsgrupo13'  # Contraseña en texto plano (ajustar según necesidad)
 
   # Variables de la imagen
   imagePublisher: 'Canonical'

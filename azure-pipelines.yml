@@ -7,7 +7,7 @@ pool:
 variables:
   azureSubscription: 'sc-grupo-13' 
   location: 'westus3'
-  resourceGroupName: 'grupo-13' # Este es un nombre que debe cambiar al que crearon.
+  resourceGroupName: 'rg-grupo-13' # Este es un nombre que debe cambiar al que crearon.
   virtualNetworkName: 'vr-grupo-13'
   subnetName: 'subr-grupo-13'
   addressPrefix: '10.0.0.0/16'

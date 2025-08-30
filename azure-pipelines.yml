@@ -10,8 +10,8 @@ variables:
   resourceGroupName: 'rg-grupo-13' # Este es un nombre que debe cambiar al que crearon.
   virtualNetworkName: 'vr-grupo-13'
   subnetName: 'subr-grupo-13'
-  addressPrefix: '10.0.0.0/16'
-  subnetPrefix: '10.0.1.0/24'
+  addressPrefix: '10.0.0.0/24'
+  subnetPrefix: '10.0.0.0/26'
   securityGroupName: 'sg-grupo-13'
   publicIpName: 'vm-grupo-13-ip'
   vmName: 'vm-grupo-13'

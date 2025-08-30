@@ -5,7 +5,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  azureSubscription: 'sc-grupo-13-2'  # Nombre del servicio de conexión en Azure DevOps
+  azureSubscription: 'sc-grupo-13-2'  # Nombre del servicio de conexión en Azure DevOp
   location: 'westus3'
   resourceGroupName: 'rg-grupo-13-2' # Este es un nombre que debe cambiar al que crearon.
   virtualNetworkName: 'vr-grupo-13-2'
